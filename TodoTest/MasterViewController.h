@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface MasterViewController : UITableViewController
+<UITextFieldDelegate>
+{
+    UIView *blackview;
+    BOOL insertMode;
+    UITextField *textField;
+}
 
 
 @end
