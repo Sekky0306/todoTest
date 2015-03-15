@@ -56,6 +56,17 @@
     //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     //[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+    
+-(BOOL)textFieldShouldReturn:(UITextField *)tf
+{
+    insertMode=YES;
+    if (!_objects) {
+        _objects=[[NSMutableArray alloc]init];
+    }
+    if ([textField.text length]>0) {
+        [_objects insertObject:textField.text atIndex:0];
+    }
+
 
 #pragma mark - Segues
 
@@ -80,8 +91,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    NSString *contestText = _objects[indexPath.row];
+    cell.textLabel.text = contestText;
     return cell;
 }
 
