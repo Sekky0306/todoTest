@@ -65,6 +65,8 @@
     }
     if ([textField.text length]>0) {
         [_objects insertObject:textField.text atIndex:0];
+        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimation];
     }
 
 
@@ -111,3 +113,5 @@
 }
 
 @end
+@end
+
